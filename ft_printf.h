@@ -18,4 +18,6 @@ int	ft_putunbr_print(unsigned int n);
 
 int	ft_hex_print(unsigned long n, char const *symbols);
 
+int	ft_isfprint(const char c);
+
 #endif

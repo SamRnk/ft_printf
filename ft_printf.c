@@ -34,11 +34,13 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1])
 		{
 			i++;
-			count += ft_print_format(format[i], args);
+			if (ft_isfprint(format[i]))
+				count += ft_print_format(format[i], args);
 		}
 		else if (format[i])
 			count += ft_putchar_print(format[i]);
 		i++;
 	}
+	va_end(args); 
 	return (count);
 }
