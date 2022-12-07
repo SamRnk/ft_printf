@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_putnbr_print.c                                  :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: sreerink <marvin@codam.nl>                   +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/12/07 19:46:20 by sreerink      #+#    #+#                 */
+/*   Updated: 2022/12/07 19:54:08 by sreerink      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include	"ft_printf.h"
 
 int	ft_putnbr_print(int n)
 {
-	int		count;
+	int				count;
 	unsigned int	nb;
 
 	count = 0;
