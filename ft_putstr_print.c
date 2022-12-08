@@ -6,7 +6,7 @@
 /*   By: sreerink <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 19:47:12 by sreerink      #+#    #+#                 */
-/*   Updated: 2022/12/07 21:00:55 by sreerink      ########   odam.nl         */
+/*   Updated: 2022/12/08 22:07:31 by sreerink      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,7 @@
 
 int	ft_putstr_print(char *s)
 {
-	int	count;
-
 	if (!s)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	count = ft_strlen(s);
-	write(1, s, count);
-	return (count);
+		return (write(1, "(null)", 6));
+	return (write(1, s, ft_strlen(s)));
 }
