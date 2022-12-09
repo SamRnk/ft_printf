@@ -6,7 +6,7 @@
 /*   By: sreerink <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 19:45:20 by sreerink      #+#    #+#                 */
-/*   Updated: 2022/12/08 22:37:03 by sreerink      ########   odam.nl         */
+/*   Updated: 2022/12/09 23:35:06 by sreerink      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	ft_format_loop(const char *format, va_list args)
 			else
 				write_check = ft_putchar_print(format[i]);
 		}
-		else if (format[i])
+		else if (format[i] && format[i] != '%')
 			write_check = ft_putchar_print(format[i]);
 		if (write_check == -1)
 			return (-1);
@@ -82,6 +82,6 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	ft_printf("%i\n", ft_printf("Hallo!\n"));
-	printf("%i\n", printf("Hallo!\n"));
+	ft_printf("%i\n", ft_printf("sgwgrwegergerger%s", NULL));
+	printf("%i\n", printf("sgwgrwegergerger%s", NULL));
 }*/
