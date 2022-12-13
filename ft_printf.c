@@ -6,7 +6,7 @@
 /*   By: sreerink <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 19:45:20 by sreerink      #+#    #+#                 */
-/*   Updated: 2022/12/09 23:35:06 by sreerink      ########   odam.nl         */
+/*   Updated: 2022/12/13 04:23:14 by sreerink      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,28 @@
 static int	ft_print_format(const char format, va_list args)
 {
 	int	count;
+	int	write_check;
 
 	count = 0;
+	write_check = 0;
 	if (format == 'c')
 		count = ft_putchar_print(va_arg(args, int));
 	if (format == 's')
 		count = ft_putstr_print(va_arg(args, char *));
 	if (format == 'i' || format == 'd')
-		count = ft_putnbr_print(va_arg(args, int));
+		count = ft_putnbr_print(va_arg(args, int), &write_check);
 	if (format == 'u')
-		count = ft_putunbr_print(va_arg(args, unsigned int));
+		count = ft_putunbr_print(va_arg(args, unsigned int), &write_check);
 	if (format == 'x')
-		count = ft_hex_print(va_arg(args, unsigned int), "0123456789abcdef");
+		count = ft_hex_print(va_arg(args, unsigned int), "0123456789abcdef", &write_check);
 	if (format == 'X')
-		count = ft_hex_print(va_arg(args, unsigned int), "0123456789ABCDEF");
+		count = ft_hex_print(va_arg(args, unsigned int), "0123456789ABCDEF", &write_check);
 	if (format == 'p')
-		count = ft_ptr_print(va_arg(args, unsigned long));
+		count = ft_ptr_print(va_arg(args, unsigned long), &write_check);
 	if (format == '%')
 		count = ft_putchar_print('%');
+	if (write_check == -1)
+		return (-1);
 	return (count);
 }
 
