@@ -6,7 +6,7 @@
 /*   By: sreerink <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 19:45:42 by sreerink      #+#    #+#                 */
-/*   Updated: 2022/12/13 04:11:22 by sreerink      ########   odam.nl         */
+/*   Updated: 2022/12/16 23:30:51 by sreerink      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int		ft_putstr_print(char *s);
 
 int		ft_putunbr_print(unsigned int n, int *write_check);
 
-int		ft_hex_print(unsigned long n, char const *symbols, int *write_check);
+int		ft_hex_print_low(unsigned long n, int *write_check);
+
+int		ft_hex_print_caps(unsigned long n, int *write_check);
 
 int		ft_isfprint(const char c);
 

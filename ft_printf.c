@@ -6,7 +6,7 @@
 /*   By: sreerink <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 19:45:20 by sreerink      #+#    #+#                 */
-/*   Updated: 2022/12/13 04:23:14 by sreerink      ########   odam.nl         */
+/*   Updated: 2022/12/16 23:35:02 by sreerink      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static int	ft_print_format(const char format, va_list args)
 	if (format == 'u')
 		count = ft_putunbr_print(va_arg(args, unsigned int), &write_check);
 	if (format == 'x')
-		count = ft_hex_print(va_arg(args, unsigned int), "0123456789abcdef", &write_check);
+		count = ft_hex_print_low(va_arg(args, unsigned int), &write_check);
 	if (format == 'X')
-		count = ft_hex_print(va_arg(args, unsigned int), "0123456789ABCDEF", &write_check);
+		count = ft_hex_print_caps(va_arg(args, unsigned int), &write_check);
 	if (format == 'p')
 		count = ft_ptr_print(va_arg(args, unsigned long), &write_check);
 	if (format == '%')
@@ -81,11 +81,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-/*
-#include	<stdio.h>
-
-int	main(void)
-{
-	ft_printf("%i\n", ft_printf("sgwgrwegergerger%s", NULL));
-	printf("%i\n", printf("sgwgrwegergerger%s", NULL));
-}*/

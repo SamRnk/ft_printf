@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_ptr_print.c                                     :+:    :+:            */
+/*   ft_hex_print_caps.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sreerink <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/07 20:15:46 by sreerink      #+#    #+#                 */
-/*   Updated: 2022/12/16 23:31:29 by sreerink      ########   odam.nl         */
+/*   Created: 2022/12/16 23:28:07 by sreerink      #+#    #+#                 */
+/*   Updated: 2022/12/16 23:28:53 by sreerink      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
-int	ft_ptr_print(unsigned long n, int *write_check)
+int	ft_hex_print_caps(unsigned long n, int *write_check)
 {
-	int	count;
+	int		count;
+	char	*symbols;
 
 	count = 0;
-	if (write(1, "0x", 2) == -1)
+	symbols = "0123456789ABCDEF";
+	if (n > 15)
+		count += ft_hex_print_caps(n / 16, write_check);
+	if (*write_check == -1)
 		return (-1);
-	count = ft_hex_print_low(n, write_check);
-	if (count == -1)
-		return (-1);
-	return (count + 2);
+	*write_check = ft_putchar_print(symbols[n % 16]);
+	count += *write_check;
+	return (count);
 }
